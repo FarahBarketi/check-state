@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import Person from "./component/Person";
+ class App extends React.Component{
+constructor(){
+    super();
+    this.state={
+      IsTrue:false
+  };
 }
+ToogleTrue = ()=> this.setState ({IsTrue: !this.state.IsTrue});
 
+ interval = setInterval(() => {
+    console.log('montage');
+    console.log('Update');
+  }, );  
+render(){
+        return(
+            <div>
+              <button onClick={this.ToogleTrue}>show</button>
+              {
+                this.state.IsTrue?<Person/>: null
+              }
+             </div>
+        );
+    }
+}
 export default App;
